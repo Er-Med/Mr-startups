@@ -26,21 +26,9 @@ const nextConfig: NextConfig = {
     position: "bottom-right",
   },
   
-  // Fix turbopack root directory detection and exclude problematic packages
-  turbopack: {
-    root: process.cwd(),
-    rules: {
-      '*.mjs': {
-        loaders: ['swc-loader'],
-        as: '*.js',
-      },
-    },
-  },
   
   // Exclude Sanity from Turbopack processing
-  experimental: {
-    serverExternalPackages: ['sanity', '@sanity/client', '@sanity/image-url'],
-  },
+  serverExternalPackages: ['sanity', '@sanity/client', '@sanity/image-url'],
 };
 
 export default withSentryConfig(nextConfig, {
