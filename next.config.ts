@@ -26,8 +26,22 @@ const nextConfig: NextConfig = {
     position: "bottom-right",
   },
 
-  // Exclude Sanity from Turbopack processing
+  // Exclude Sanity from server-side bundling
   serverExternalPackages: ["sanity", "@sanity/client", "@sanity/image-url"],
+
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Exclude Sanity from client-side bundle
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      };
+    }
+
+    return config;
+  },
 };
 
 export default withSentryConfig(nextConfig, {

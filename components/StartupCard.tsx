@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Button } from './ui/button'
-import { Author, Startup } from '@/sanity/types'
+import { Author, Startup, StartupTypeCard } from '@/lib/types'
 import { Skeleton } from './ui/skeleton'
 import { Session } from 'next-auth'
 
@@ -22,7 +22,6 @@ interface StartupCardProps {
 }
 
 
-export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
 
 const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }: StartupCardProps) => {
 
