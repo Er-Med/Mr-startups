@@ -23,6 +23,17 @@ export const createPitch = async (
     Array.from(form).filter(([key]) => key !== "pitch")
   );
 
+  // 2.5️⃣ Normalize image URL to ensure it's absolute
+  const normalizeImageUrl = (url: string) => {
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+      return url;
+    }
+    // If it's a relative path, assume it's from the same domain
+    return `https://arabapps-jct9.vercel.app${
+      url.startsWith("/") ? url : `/${url}`
+    }`;
+  };
+
   // 3️⃣ Create a URL-friendly slug from the title
   const slug = slugify(title as string, { lower: true, strict: true });
 
@@ -32,7 +43,7 @@ export const createPitch = async (
       title,
       description,
       category,
-      image: link,
+      image: normalizeImageUrl(link as string),
       slug: {
         _type: slug,
         current: slug,

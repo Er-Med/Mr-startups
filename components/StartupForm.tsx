@@ -140,7 +140,7 @@ const StartupForm = () => {
                         name="link"
                         id="link"
                         className="startup-form_input"
-                        placeholder="https://example.com/your-startup-image.jpg"
+                        placeholder="https://example.com/your-startup-image.jpg (must start with http:// or https://)"
                         required
                     />
                     {errors.link && <p className="startup-form_error">{errors.link}</p>}
