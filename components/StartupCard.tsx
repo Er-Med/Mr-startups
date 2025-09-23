@@ -102,32 +102,20 @@ const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }
 
       <div className='flex-between mt-5 gap-5'>
         <div className="flex-1">
-          {session?.user?.id === author?._id ? (
-            <Link href={`/user/${author?._id}`}>
-              <p>{author?.name}</p>
-            </Link>
-          ) : (
-            <p>{author?.name}</p>
-          )}
+          <Link href={`/user/${author?._id}`}>
+            <p className="cursor-pointer hover:text-primary transition-colors">{author?.name}</p>
+          </Link>
           <Link href={`/startup/${_id}`}>
             <h3 className='text-26-semibold'>{title}</h3>
           </Link>
         </div>
-        {session?.user?.id === author?._id ? (
-          <Link href={`/user/${author?._id}`}>
-            <Image src={author?.image || "https://placehold.co/48x48"} alt='placeholder'
-              width={48}
-              height={48}
-              className='rounded-full '
-            />
-          </Link>
-        ) : (
+        <Link href={`/user/${author?._id}`}>
           <Image src={author?.image || "https://placehold.co/48x48"} alt='placeholder'
             width={48}
             height={48}
-            className='rounded-full '
+            className='rounded-full cursor-pointer hover:opacity-80 transition-opacity'
           />
-        )}
+        </Link>
       </div>
       <Link href={`/startup/${_id}`}>
         <p className='startup-card_desc'>{description}</p>
