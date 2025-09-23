@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    {
+      "source": "/studio/:path*",
+      "destination": "/studio/[[...tool]]"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/studio/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ]
+}

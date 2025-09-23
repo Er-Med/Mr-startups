@@ -28,7 +28,21 @@ export default defineConfig({
     markdownSchema(),
   ],
   // Add error handling and logging
-  onError: (error) => {
+  onError: (error: Error) => {
     console.error("Sanity Studio Error:", error);
+  },
+  // Add production-specific configuration
+  title: "MR Startups Studio",
+  // Ensure proper API versioning
+  apiVersion,
+  // Add authentication configuration for production
+  auth: {
+    providers: [
+      {
+        name: "sanity",
+        title: "Sanity",
+        url: "https://api.sanity.io/v1/auth/sanity/login",
+      },
+    ],
   },
 });
