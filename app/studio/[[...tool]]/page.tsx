@@ -10,7 +10,8 @@
 import { NextStudio } from 'next-sanity/studio'
 import config from '../../../sanity.config'
 
-export const dynamic = 'force-static'
+// Remove force-static to allow dynamic rendering in production
+// export const dynamic = 'force-static'
 
 export { metadata, viewport } from 'next-sanity/studio'
 

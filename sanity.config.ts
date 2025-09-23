@@ -27,4 +27,8 @@ export default defineConfig({
     visionTool({ defaultApiVersion: apiVersion }),
     markdownSchema(),
   ],
+  // Add error handling and logging
+  onError: (error) => {
+    console.error("Sanity Studio Error:", error);
+  },
 });
