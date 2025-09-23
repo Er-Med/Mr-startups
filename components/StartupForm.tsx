@@ -38,9 +38,9 @@ const StartupForm = () => {
                     description: "Your startup has been added to the platform.",
                     duration: 3000,
                 });
-                // Redirect to home page after a short delay
+                // Redirect to the created startup detail page after a short delay
                 setTimeout(() => {
-                    router.push("/");
+                    router.push(`/startup/${result.startupId}`);
                 }, 1500);
             } else if (result.status === "ERROR") {
                 toast.error("Failed to create startup", {

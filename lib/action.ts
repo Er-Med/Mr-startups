@@ -4,7 +4,6 @@ import { auth } from "@/auth";
 import { parseServerActionResponse } from "./utils";
 import slugify from "slugify";
 import { writeClient } from "@/sanity/lib/write-client";
-import { revalidatePath } from "next/cache";
 
 export const createPitch = async (
   state: { error: string; status: string },
@@ -59,14 +58,12 @@ export const createPitch = async (
     // 5️⃣ Create a new document in Sanity
     const result = await writeClient.create({ _type: "startup", ...startup });
 
-    // 6️⃣ Revalidate the home page to show the new startup immediately
-    revalidatePath("/");
-
-    // 7️⃣ Return a JSON-safe response with status SUCCESS
+    // 6️⃣ Return a JSON-safe response with status SUCCESS
     return parseServerActionResponse({
       ...result,
       error: "",
       status: "SUCCESS",
+      startupId: result._id, // Include the startup ID for redirection
     });
   } catch (error) {
     console.log(error);
