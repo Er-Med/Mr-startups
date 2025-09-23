@@ -25,10 +25,9 @@ const nextConfig: NextConfig = {
   devIndicators: {
     position: "bottom-right",
   },
-  
-  
+
   // Exclude Sanity from Turbopack processing
-  serverExternalPackages: ['sanity', '@sanity/client', '@sanity/image-url'],
+  serverExternalPackages: ["sanity", "@sanity/client", "@sanity/image-url"],
 };
 
 export default withSentryConfig(nextConfig, {
