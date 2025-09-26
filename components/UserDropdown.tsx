@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
-import { User, Settings, MessageSquare, Bug, ChevronDown, Users, LogOut } from 'lucide-react';
+import { User, Bug, ChevronDown, Users, LogOut, Heart } from 'lucide-react';
 import { AvatarFallback, AvatarImage, Avatar } from './ui/avatar';
 
 interface UserDropdownProps {
@@ -90,23 +90,13 @@ const UserDropdown = ({ user, userId }: UserDropdownProps) => {
               <span className="text-sm">Your Profile</span>
             </Link>
 
-
             <Link
-              href="/settings"
+              href="/favorites"
               className="flex items-center gap-3 px-4 py-2 text-white hover:bg-white/10 transition-colors duration-200"
               onClick={() => setIsOpen(false)}
             >
-              <Settings className="size-4" />
-              <span className="text-sm">Settings</span>
-            </Link>
-
-            <Link
-              href="/feedback"
-              className="flex items-center gap-3 px-4 py-2 text-white hover:bg-white/10 transition-colors duration-200"
-              onClick={() => setIsOpen(false)}
-            >
-              <MessageSquare className="size-4" />
-              <span className="text-sm">Give feedback</span>
+              <Heart className="size-4" />
+              <span className="text-sm">Your Favorites</span>
             </Link>
 
             <Link

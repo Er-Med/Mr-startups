@@ -3,6 +3,7 @@
 import { auth } from "@/auth";
 import { writeClient } from "@/sanity/lib/write-client";
 import { parseServerActionResponse } from "../utils";
+import { IS_FAVORITED_QUERY } from "@/sanity/lib/queries";
 
 export const toggleFavorite = async (startupId: string) => {
   const session = await auth();
@@ -72,10 +73,10 @@ export const checkIfFavorited = async (startupId: string) => {
   }
 
   try {
-    const result = await writeClient.fetch(
-      `*[_type == "startup" && _id == $startupId && references($userId) in favorites][0]`,
-      { startupId, userId: session.user.id }
-    );
+    const result = await writeClient.fetch(IS_FAVORITED_QUERY, {
+      startupId,
+      userId: session.user.id,
+    });
 
     return { isFavorited: !!result };
   } catch (error) {

@@ -152,10 +152,10 @@
 .bg-grid {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(to right, #3b82f647 1px, transparent 1px),
-    linear-gradient(to bottom, #3b82f647 1px, transparent 1px);
-  background-size: 20px 20px;
-  /* animation: moveX 8s linear infinite; */
+  background-image: linear-gradient(to right, #74747438 2px, transparent 2px),
+    linear-gradient(to bottom, #74747438 2px, transparent 2px);
+  background-size: 100px 100px;
+  animation: moveX 8s linear infinite;
 }
 
 @keyframes moveX {
@@ -186,6 +186,10 @@
 
 .products-title {
   @apply text-3xl md:text-4xl lg:text-5xl font-bold text-white;
+}
+
+.section-heading {
+  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6;
 }
 
 .products-subtitle {
@@ -716,11 +720,11 @@
 
 /* Featured Image - Smaller */
 .blog-image-container {
-  @apply relative overflow-hidden rounded-xl border border-white/10;
+  @apply relative overflow-hidden rounded-xl border border-white/10 w-full h-64 sm:h-80 md:h-96;
 }
 
 .blog-featured-image {
-  @apply w-full h-auto object-cover;
+  @apply w-full h-full object-cover;
 }
 
 /* Author Info Under Image */

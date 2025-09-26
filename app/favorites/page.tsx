@@ -14,6 +14,17 @@ export default async function FavoritesPage() {
   userId: session.user.id
  });
 
+ if (!favorites || favorites.length === 0) {
+  return (
+   <div className="container mx-auto p-4">
+    <h1 className="text-2xl font-bold mb-6">Your Favorite Startups</h1>
+    <div className="text-center py-8">
+     <p className="text-gray-500">You haven't favorited any startups yet.</p>
+     <p className="text-sm text-gray-400 mt-2">Browse startups and click the heart icon to add them to your favorites!</p>
+    </div>
+   </div>
+  );
+ }
 
  return (
   <div className="container mx-auto p-4">

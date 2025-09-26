@@ -1,7 +1,6 @@
 import StartupForm from "@/components/StartupForm";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import Navbar from "@/components/Navbar";
 
 const Page = async () => {
   const session = await auth();

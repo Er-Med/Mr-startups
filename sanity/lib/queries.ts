@@ -147,14 +147,14 @@ export const PLAYLIST_BY_SLUG_QUERY =
 
 // Check if user has favorited a startup
 export const IS_FAVORITED_QUERY = defineQuery(`
-  *[_type == "startup" && _id == $startupId && references($userId) in favorites][0] {
+  *[_type == "startup" && _id == $startupId && $userId in favorites[]._ref][0] {
     _id
   }
 `);
 
 // Get user's favorite startups
 export const USER_FAVORITES_QUERY = defineQuery(`
-  *[_type == "startup" && references($userId) in favorites] | order(_createdAt desc) {
+  *[_type == "startup" && $userId in favorites[]._ref] | order(_createdAt desc) {
     _id,
     title,
     slug,
@@ -168,7 +168,8 @@ export const USER_FAVORITES_QUERY = defineQuery(`
     views,
     description,
     category,
-    image
+    image,
+    "favoriteCount": count(favorites)
   }
 `);
 

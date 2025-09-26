@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
+import Navbar from "@/components/Navbar";
 // import "easymde/dist/easymde.min.css";
 
 
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} antialiased`}
       >
+        <Navbar />
         {children}
         <Toaster />
       </body>

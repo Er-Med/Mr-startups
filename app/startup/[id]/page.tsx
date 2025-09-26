@@ -50,8 +50,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
                         <Image
                             src={post.image}
                             alt={post.title}
-                            width={600}
-                            height={300}
+                            fill
                             className="blog-featured-image"
                             priority
                         />
