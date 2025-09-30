@@ -1,17 +1,16 @@
 "use client"
 import { cn, formatDate } from '@/lib/utils'
-import { EyeIcon } from 'lucide-react'
+import { ArrowBigUp, Heart } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { Button } from './ui/button'
-import { Author, Startup, StartupTypeCard } from '@/lib/types'
+import { StartupTypeCard } from '@/lib/types'
 import { Skeleton } from './ui/skeleton'
 import { Session } from 'next-auth'
 
-import { ArrowBigUp } from 'lucide-react'
 import { toggleFavorite } from '@/lib/actions/favorites'
 import { useState } from 'react'
+import { signIn } from 'next-auth/react'
 
 // Add to component props
 interface StartupCardProps {
@@ -34,7 +33,11 @@ const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }
 
   // Add favorite handler
   const handleToggleFavorite = async () => {
-    if (!session?.user?.id) return;
+    if (!session?.user?.id) {
+      // Redirect to login if user is not authenticated
+      await signIn('github');
+      return;
+    }
 
     // Optimistic update
     const newIsFavorited = !isFavorited;
@@ -43,14 +46,6 @@ const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }
     setIsFavorited(newIsFavorited);
     setfavoriteCount(newCount);
 
-    // try {
-    //   const result = await toggleFavorite(post._id);
-    //   if (result.status === "ERROR") {
-    //     // Revert on error
-    //     setIsFavorited(!newIsFavorited);
-    //     setfavoriteCount(favoriteCount);
-    //   }
-    // }
     try {
       const result = await toggleFavorite(post._id);
       if (result.status === "SUCCESS") {
@@ -103,7 +98,6 @@ const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }
           <button
             onClick={handleToggleFavorite}
             className="flex items-center gap-1 "
-            disabled={!session?.user?.id}
           >
             <ArrowBigUp
               className={`size-6 ${isFavorited ? 'text-red-500 fill-red-500' : 'text-primary'
@@ -146,9 +140,19 @@ const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }
           {/* category, date adn views */}
           <div className="flex justify-between items-center text-xs font-meduim mt-2">
             <strong className='relative z-10 rounded-lg bg-[rgb(33 33 33)] px-3 py-1.5 font-medium text-gray-300 hover:bg-dark-500 bg-[#212121]'>{category}</strong>
-            <div className="flex items-center gap-4 text-gray-400">
+            <div className="flex items-center gap-4 text-white">
               <span>{formatDate(_createdAt)}</span>
               <span className=' '>{views} views</span>
+              <button
+                onClick={handleToggleFavorite}
+                className="flex items-center gap-1 text-sm group "
+              >
+                <ArrowBigUp
+                  className={`size-5 ${isFavorited ? 'text-blue-500 fill-blue-500' : 'text-white group-hover:text-blue-500 group-hover:fill-blue-500'
+                    }`}
+                />
+                <span className=' text-white'>{favoriteCount}</span>
+              </button>
             </div>
           </div>
 
@@ -171,6 +175,7 @@ const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }
             </Link>
             <Link href={`/user/${author?._id}`}>
               <p className="cursor-pointer  font-medium transition-colors">{author?.name}</p>
+
             </Link>
           </div>
         </div>
