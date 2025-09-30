@@ -32,8 +32,8 @@ export default async function Home({ searchParams }: {
           <div className="flex flex-col items-center justify-center h-full gap-6 z-40 max-w-6xl mx-auto">
             {/* Main Headline */}
             <div className="text-center space-y-4 hero-animate flex flex-col items-center justify-center">
-              <h1 className='capitalize max-w-5xl text-center leading-[1.15]  md:leading-[1.15] text-white font-semibold font-sans text-[max(48px,min(5vw,76px))] bg-gradient-to-b from-gray-200 to-gray-300 text-transparent bg-clip-text'>
-                Present Your <strong>Moroccan</strong> Startup, Meet Entrepreneurs
+              <h1 className='capitalize max-w-6xl text-center leading-[1.15]  md:leading-[1.15]  font-semibold font-sans text-[clamp(48px,5vw,76px)] bg-gradient-to-b from-gray-100 to-gray-200 text-transparent bg-clip-text'>
+                Present Your <span>Moroccan</span> Startup, Meet Entrepreneurs
               </h1>
               <p className='z-10 font-semibold mb-4  mt-4 text-center max-w-[390px] sm:max-w-[410px] px-4 text-gray-400'>
                 Pitch Ideas, Cast Votes, and Get Discovered.
