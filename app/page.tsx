@@ -5,6 +5,7 @@ import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import ProductsSection from "@/components/ProductsSection";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
+import { headers } from "next/headers";
 
 export default async function Home({ searchParams }: {
   searchParams: Promise<{ query?: string }>
@@ -18,21 +19,24 @@ export default async function Home({ searchParams }: {
 
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params })
 
+
+
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-[#09090b]">
+      <section className="relative ">
+        {/* Overlay */}
+        {/* <div className="absolute top-0 w-full h-px z-10 bg-gradient-to-t from-zinc-950/0 via-zinc-950/20 to-zinc-950/80 "></div> */}
         <div className="bg-grid"></div>
         <section className='relative flex flex-col items-center justify-center px-4 pb-20 pt-12 md:pt-24'>
           <div className="flex flex-col items-center justify-center h-full gap-6 z-40 max-w-6xl mx-auto">
             {/* Main Headline */}
             <div className="text-center space-y-4 hero-animate flex flex-col items-center justify-center">
-              <h1 className='capitalize max-w-5xl text-center leading-[1.15]  md:leading-[1.15] text-white font-bold font-montserrat text-[max(48px,min(5vw,76px))]'>
-                <span className="bg-gradient-to-r from-red-700 to-green-700 bg-clip-text text-transparent">  The Arab World's</span> most
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> innovative</span> digital products.
+              <h1 className='capitalize max-w-5xl text-center leading-[1.15]  md:leading-[1.15] text-white font-semibold font-sans text-[max(48px,min(5vw,76px))] bg-gradient-to-b from-gray-200 to-gray-300 text-transparent bg-clip-text'>
+                Present Your <strong>Moroccan</strong> Startup, Meet Entrepreneurs
               </h1>
               <p className='z-10 font-semibold mb-4  mt-4 text-center max-w-[390px] sm:max-w-[410px] px-4 text-gray-400'>
-                Submit your projects and get discovered.
+                Pitch Ideas, Cast Votes, and Get Discovered.
               </p>
             </div>
 
@@ -62,7 +66,7 @@ export default async function Home({ searchParams }: {
           </div>
         </section>
         {/* Overlay */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-zinc-950/0 via-zinc-950/20 to-zinc-950/80"></div>
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-zinc-950/0 via-zinc-950/20 to-zinc-950/80 "></div>
       </section>
 
       {/* Products Section */}
@@ -71,7 +75,7 @@ export default async function Home({ searchParams }: {
           <h2 className="section-heading">
             {query ? `Search results for "${query}"` : "All Startups"}
           </h2>
-          <ul className='card_grid'>
+          <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20 '>
             {posts?.length > 0 ? (
               posts.map((post: any) => (
                 <StartupCard

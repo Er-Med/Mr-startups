@@ -35,6 +35,9 @@ importers:
       dataloader:
         specifier: ^2.2.3
         version: 2.2.3
+      easymde:
+        specifier: ^2.20.0
+        version: 2.20.0
       framer-motion:
         specifier: ^12.23.14
         version: 12.23.14(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)

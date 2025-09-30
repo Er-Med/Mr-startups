@@ -22,6 +22,7 @@ const ProductsSection = ({
   >
    <div className="products-container">
     {/* Content */}
+
     <div className="products-content">
      {children}
     </div>

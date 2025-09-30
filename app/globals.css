@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-montserrat);
-  --font-montserrat: var(--font-montserrat);
+  --font-sans: var(--font-inter);
+  --font-inter: var(--font-inter);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -119,6 +119,12 @@
   body {
     @apply bg-[#09090b] text-white font-sans;
   }
+  input::placeholder,
+  textarea::placeholder {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
 }
 
 @layer utilities {
@@ -155,7 +161,8 @@
   background-image: linear-gradient(to right, #74747438 2px, transparent 2px),
     linear-gradient(to bottom, #74747438 2px, transparent 2px);
   background-size: 100px 100px;
-  animation: moveX 8s linear infinite;
+  /* background-position: 0px -218px */
+  animation: moveX 10s linear infinite;
 }
 
 @keyframes moveX {
@@ -163,7 +170,8 @@
     background-position: 0 0;
   }
   to {
-    background-position: 0px -200px;
+    /* background-position: 0px -200px; */
+    background-position: -200px -100px;
   }
 }
 
@@ -189,7 +197,7 @@
 }
 
 .section-heading {
-  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6;
+  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-6;
 }
 
 .products-subtitle {
@@ -230,12 +238,12 @@
 
 /* Card Grid Styles */
 .card_grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
+  /* @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8; */
 }
 
 /* Startup Card Styles */
 .startup-card {
-  @apply bg-white border-2 border-black rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300 cursor-pointer shadow-[4px_4px_0px_#3B82F6] hover:shadow-[2px_2px_0px_#3B82F6] hover:translate-x-[2px] hover:translate-y-[2px];
+  /* @apply border-2 border-black rounded-xl  hover:border-blue-500/50 transition-all duration-300 cursor-pointer hover:shadow-[2px_2px_0px_#3B82F6] hover:translate-x-[2px] hover:translate-y-[2px]; */
 }
 
 .startup-card:hover {
@@ -263,7 +271,7 @@
 }
 
 .startup-card_img {
-  @apply w-full h-48 object-cover rounded-lg mt-4 border-2 border-black;
+  @apply w-full h-48 object-cover rounded-md mt-4 border-2 border-black;
 }
 
 .text-16-meduim {

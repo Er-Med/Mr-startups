@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
-import { User, Bug, ChevronDown, Users, LogOut, Heart } from 'lucide-react';
+import { User, ChevronDown, Users, LogOut, ArrowBigUp } from 'lucide-react';
 import { AvatarFallback, AvatarImage, Avatar } from './ui/avatar';
 
 interface UserDropdownProps {
@@ -95,17 +95,8 @@ const UserDropdown = ({ user, userId }: UserDropdownProps) => {
               className="flex items-center gap-3 px-4 py-2 text-white hover:bg-white/10 transition-colors duration-200"
               onClick={() => setIsOpen(false)}
             >
-              <Heart className="size-4" />
+              <ArrowBigUp className="size-4" />
               <span className="text-sm">Your Favorites</span>
-            </Link>
-
-            <Link
-              href="/bug-report"
-              className="flex items-center gap-3 px-4 py-2 text-white hover:bg-white/10 transition-colors duration-200"
-              onClick={() => setIsOpen(false)}
-            >
-              <Bug className="size-4" />
-              <span className="text-sm">Report bug</span>
             </Link>
 
             <div className="px-4 py-2">

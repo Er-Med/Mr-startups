@@ -24,6 +24,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dataloader": "^2.2.3",
+    "easymde": "^2.20.0",
     "framer-motion": "^12.23.14",
     "import-in-the-middle": "^1.14.2",
     "lucide-react": "^0.544.0",

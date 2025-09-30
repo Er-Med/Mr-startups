@@ -93,7 +93,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
                     </div>
 
                     {/* View Counter - Left Side */}
-                    <div className="blog-stats-left fixed top-1/2">
+                    <div className="blog-stats-left fixed bottom-[5rem] right-[2rem]">
                         <Suspense fallback={<Skeleton className="blog-view-skeleton" />}>
                             <View id={id} />
                         </Suspense>

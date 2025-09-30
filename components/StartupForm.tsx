@@ -86,7 +86,7 @@ const StartupForm = () => {
     return (
         <div className="w-full">
             <div className="text-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold text-white font-montserrat mb-2">
+                <h2 className="text-2xl md:text-3xl font-bold text-white font-sans mb-2">
                     Tell us about your startup
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
