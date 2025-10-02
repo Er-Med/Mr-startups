@@ -26,8 +26,8 @@ export default async function Home({ searchParams }: {
       {/* Hero Section */}
       <section className="relative ">
         {/* Overlay */}
-        {/* <div className="absolute top-0 w-full h-px z-10 bg-gradient-to-t from-zinc-950/0 via-zinc-950/20 to-zinc-950/80 "></div> */}
-        {/* <div className="bg-grid"></div> */}
+        <div className="absolute top-0 w-full h-8px z-10 bg-gradient-to-t from-zinc-950/0 via-zinc-950/20 to-zinc-950/80 "></div>
+        <div className="bg-grid"></div>
         <section className='relative flex flex-col items-center justify-center px-4 pb-20 pt-12 md:pt-24'>
           <div className="flex flex-col items-center justify-center h-full gap-6 z-40 max-w-6xl mx-auto">
             {/* Main Headline */}
