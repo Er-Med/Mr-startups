@@ -7,7 +7,7 @@ export default async function FavoritesPage() {
  const session = await auth();
 
  if (!session?.user?.id) {
-  return <div>Please sign in to view favorites</div>;
+  return <div style={{ color: 'var(--color-foreground)' }}>Please sign in to view favorites</div>;
  }
 
  const favorites = await client.fetch(USER_FAVORITES_QUERY, {
@@ -17,19 +17,19 @@ export default async function FavoritesPage() {
  if (!favorites || favorites.length === 0) {
   return (
    <div className="container mx-auto p-4">
-    <h1 className="text-2xl font-bold mb-6">Your Favorite Startups</h1>
+    <h1 className="text-2xl font-bold mb-6" style={{ color: 'var(--color-foreground)' }}>Your Favorite Startups</h1>
     <div className="text-center py-8">
-     <p className="text-gray-500">You haven't favorited any startups yet.</p>
-     <p className="text-sm text-gray-400 mt-2">Browse startups and click the heart icon to add them to your favorites!</p>
+     <p style={{ color: 'var(--color-muted)' }}>You haven't favorited any startups yet.</p>
+     <p className="text-sm mt-2" style={{ color: 'var(--color-muted)' }}>Browse startups and click the heart icon to add them to your favorites!</p>
     </div>
-   </div>
+   </div >
   );
  }
 
  return (
   <div className="container mx-auto p-4">
-   <h1 className="text-2xl font-bold mb-6">Your Favorite Startups</h1>
-   <ul className="grid gap-4">
+   <h1 className="text-2xl font-bold mb-6" style={{ color: 'var(--color-foreground)' }}>Your Favorite Startups</h1>
+   <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {favorites.map((startup: any) => (
      <StartupCard
       key={startup._id}

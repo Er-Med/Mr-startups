@@ -41,39 +41,47 @@ const SearchForm = ({ query }: { query?: string }) => {
     >
       <Form action={"/"} scroll={false} className="w-full search-form">
         <div className="flex flex-col lg:flex-row gap-4 items-center justify-center">
-          {/* Primary Input */}
-          <div className="relative flex-1 max-w-lg">
-            <Input
-              ref={inputRef}
-              name={"query"}
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setIsFocused(false)}
-              className={`w-full h-12 sm:h-14 px-4 sm:px-6 pr-24 sm:pr-28 text-black text-base sm:text-lg bg-white border-2 border-black rounded-lg shadow-[4px_4px_0px_#3B82F6] transition-all duration-200 placeholder:text-gray-500 font-medium ${isFocused ? 'ring-2 ring-blue-500 ring-opacity-50' : ''
-                }`}
-              placeholder={"Search Moroccan startups..."}
-              aria-label="Search for Moroccan startups"
-              autoComplete="off"
-              spellCheck="false"
-            />
-
-
-            {/* Integrated Search Button */}
-            <Button
-              type="submit"
-              className="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 h-8 w-8 p-0 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-200"
-              aria-label="Search"
-            >
-              <Search className="size-4" />
-            </Button>
+          {/* Integrated Search Input and Button */}
+          <div className="relative flex items-center  w-full max-w-2xl bg-[#E0E0E6] rounded p-1 has-[input:focus-within]:ring-3 has- has-[input:focus-within]:ring-primary hover:scale-105 transition-transform has-[input:focus-within]:scale-105 "
+            onFocus={() => setIsFocused(true)}>
+            {/* Search Input */}
+            <div className="relative flex-1 flex radius gap-1  ">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 size-5 text-gray-500" />
+              <Input
+                ref={inputRef}
+                name={"query"}
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                onBlur={() => setIsFocused(false)}
+                className="w-full h-14 pl-12 pr-4 text-base rounded-l rounded-r-none border-r-0 transition-all duration-200 font-medium focus:outline-none focus:ring-0 focus:border-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                style={{
+                  color: '#374151',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  outline: 'none'
+                }}
+                placeholder={"Search for startup, category, creators..."}
+                aria-label="Search for components, styles, creators"
+                autoComplete="off"
+                spellCheck="false"
+              />
+              {/* Reset Button - Only show when there's a query */}
+              {query && (
+                <SearchFormReset />
+              )}
+              {/* Integrated Search Button */}
+              <Button
+                type="submit"
+                className="h-14 px-8 bg-primary hover:bg-primary-dark text-white font-semibold rounded border-l-0 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                aria-label="Search"
+              >
+                Search
+              </Button>
+            </div>
 
           </div>
 
-          {/* Reset Button - Only show when there's a query */}
-          {query && (
-            <SearchFormReset />
-          )}
+
         </div>
       </Form>
     </motion.div>

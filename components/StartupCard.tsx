@@ -139,8 +139,8 @@ const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }
         <div className='flex flex-col gap-4'>
           {/* category, date adn views */}
           <div className="flex justify-between items-center text-xs font-meduim mt-2">
-            <strong className='relative z-10 rounded-lg bg-[rgb(33 33 33)] px-3 py-1.5 font-medium text-gray-300 hover:bg-dark-500 bg-[#212121]'>{category}</strong>
-            <div className="flex items-center gap-4 text-white">
+            <strong className='relative z-10 rounded-lg px-3 py-1.5 font-medium' style={{ backgroundColor: 'var(--color-card)', color: 'var(--color-foreground)' }}>{category}</strong>
+            <div className="flex items-center gap-4" style={{ color: 'var(--color-foreground)' }}>
               <span>{formatDate(_createdAt)}</span>
               <span className=' '>{views} views</span>
               <button
@@ -148,10 +148,13 @@ const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }
                 className="flex items-center gap-1 text-sm group "
               >
                 <ArrowBigUp
-                  className={`size-5 ${isFavorited ? 'text-blue-500 fill-blue-500' : 'text-white group-hover:text-blue-500 group-hover:fill-blue-500'
+                  className={`size-5 ${isFavorited ? 'fill-primary' : 'group-hover:fill-primary'
                     }`}
+                  style={{
+                    color: isFavorited ? 'var(--color-primary)' : 'var(--color-foreground)'
+                  }}
                 />
-                <span className=' text-white'>{favoriteCount}</span>
+                <span style={{ color: 'var(--color-foreground)' }}>{favoriteCount}</span>
               </button>
             </div>
           </div>
@@ -161,7 +164,7 @@ const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }
             <Link href={`/startup/${_id}`} className=''>
               <h3 className='text-xl md:text-2xl font-semibold  leading-tight '>{title}</h3>
             </Link>
-            <p className='text-sm leading-6 text-gray-300 line-clamp-3'>{description?.slice(0, 100)}</p>
+            <p className='text-sm leading-6 line-clamp-3' style={{ color: 'var(--color-muted)' }}>{description?.slice(0, 100)}</p>
           </div>
 
           {/* Auther */}
@@ -174,8 +177,7 @@ const StartupCard = ({ post, session, initialIsFavorited, initialFavoriteCount }
               />
             </Link>
             <Link href={`/user/${author?._id}`}>
-              <p className="cursor-pointer  font-medium transition-colors">{author?.name}</p>
-
+              <p className="cursor-pointer font-medium transition-colors" style={{ color: 'var(--color-foreground)' }}>{author?.name}</p>
             </Link>
           </div>
         </div>

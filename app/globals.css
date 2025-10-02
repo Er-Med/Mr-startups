@@ -3,121 +3,92 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-inter: var(--font-inter);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
+/* ===========================================
+   MR STARTUPS COLOR THEME SYSTEM
+   ===========================================
+   
+   🎨 HOW TO CHANGE COLORS:
+   Simply modify the color values below to update the entire app theme.
+   All components will automatically use these colors.
+   
+   📝 USAGE:
+   - Use var(--color-primary) in CSS
+   - Use bg-primary, text-primary, etc. in Tailwind classes
+   - Colors automatically work in both light and dark modes
+   
+   🔧 CUSTOMIZATION:
+   - Change --color-primary to change the main brand color
+   - Change --color-secondary to change accent/secondary color
+   - Modify background/foreground for overall theme
+   =========================================== */
+
+@theme {
+  /* ===========================================
+     MR STARTUPS COLOR THEME
+     ===========================================
+     Change these colors to update the entire app theme
+  */
+
+  /* Primary colors */
+  --color-primary: #3b82f6;
+  --color-primary-light: #60a5fa;
+  --color-primary-dark: #2563eb;
+
+  /* Secondary colors */
+  --color-secondary: #ef4444;
+  --color-secondary-light: #f87171;
+  --color-secondary-dark: #dc2626;
+
+  /* Neutral colors */
+  --color-background: #09090b;
+  --color-foreground: #ffffff;
+  --color-muted: #737373;
+  --color-border: #262626;
+
+  /* Card colors */
+  --color-card: #1e293b;
+  --color-card-foreground: #ffffff;
+
+  /* Semantic colors */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Special colors */
+  --color-gradient-from: #fff; /* Blue */
+  --color-gradient-via: #fff; /* Purple */
+  --color-gradient-to: #f87171; /* Pink */
+  --color-grid: #74747438;
+
+  /* Radius */
+  --radius: 0.625rem;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-}
-
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-background: #09090b;
+    --color-foreground: #ffffff;
+    --color-muted: #737373;
+    --color-border: #262626;
+    --color-card: #1e293b;
+    --color-card-foreground: #ffffff;
+  }
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-0;
   }
   body {
-    @apply bg-[#09090b] text-white font-sans;
+    @apply font-sans;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
   }
   input::placeholder,
   textarea::placeholder {
@@ -129,7 +100,8 @@
 
 @layer utilities {
   .pink-container {
-    @apply bg-red-400 text-red-300;
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-light);
   }
 
   /* Line clamp utilities */
@@ -153,13 +125,63 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
   }
+
+  /* Gradient utilities */
+  .bg-gradient-brand {
+    background: linear-gradient(
+      to right,
+      var(--color-gradient-from),
+      var(--color-gradient-via),
+      var(--color-gradient-to)
+    );
+  }
+
+  .text-gradient-brand {
+    background: linear-gradient(
+      to right,
+      var(--color-gradient-from),
+      var(--color-gradient-via),
+      var(--color-gradient-to)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Button hover effects */
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-foreground);
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-foreground);
+    color: var(--color-foreground);
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+  }
 }
 
 .bg-grid {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(to right, #74747438 2px, transparent 2px),
-    linear-gradient(to bottom, #74747438 2px, transparent 2px);
+  background-image: linear-gradient(
+      to right,
+      var(--color-grid) 2px,
+      transparent 2px
+    ),
+    linear-gradient(to bottom, var(--color-grid) 2px, transparent 2px);
   background-size: 100px 100px;
   /* background-position: 0px -218px */
   animation: moveX 10s linear infinite;
@@ -177,7 +199,8 @@
 
 /* Products Section Styles */
 .products-section {
-  @apply py-16 px-4 md:px-8 lg:px-16 bg-[#09090b] relative;
+  @apply py-16 px-4 md:px-8 lg:px-16 relative;
+  background-color: var(--color-background);
 }
 
 .products-container {
@@ -193,19 +216,23 @@
 }
 
 .products-title {
-  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-white;
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+  color: var(--color-foreground);
 }
 
 .section-heading {
-  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-6;
+  @apply text-xl sm:text-2xl md:text-3xl lg:text-3xl font-semibold mb-6;
+  color: var(--color-foreground);
 }
 
 .products-subtitle {
-  @apply text-lg text-zinc-400 max-w-2xl;
+  @apply text-lg max-w-2xl;
+  color: var(--color-muted);
 }
 
 .products-count {
-  @apply text-sm text-zinc-400 font-medium;
+  @apply text-sm font-medium;
+  color: var(--color-muted);
 }
 
 .products-controls {
@@ -217,11 +244,24 @@
 }
 
 .products-search-icon {
-  @apply absolute left-3 top-1/2 transform -translate-y-1/2 size-5 text-gray-400 pointer-events-none;
+  @apply absolute left-3 top-1/2 transform -translate-y-1/2 size-5 pointer-events-none;
+  color: var(--color-muted);
 }
 
 .products-search-input {
-  @apply pl-10 h-10 bg-white border-2 border-black rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200 text-black placeholder:text-gray-500;
+  @apply pl-10 h-10 rounded-lg focus:ring-2 transition-all duration-200;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-border);
+  color: var(--color-foreground);
+}
+
+.products-search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.products-search-input::placeholder {
+  color: var(--color-muted);
 }
 
 .products-view-toggle {
@@ -229,7 +269,16 @@
 }
 
 .products-sort-btn {
-  @apply h-10 px-4 bg-white border-2 border-black rounded-lg hover:border-blue-500 transition-all duration-200 text-black font-medium shadow-[2px_2px_0px_#3B82F6] hover:shadow-[1px_1px_0px_#3B82F6] hover:translate-x-[1px] hover:translate-y-[1px];
+  @apply h-10 px-4 rounded-lg transition-all duration-200 font-medium hover:translate-x-[1px] hover:translate-y-[1px];
+  background-color: var(--color-background);
+  border: 2px solid var(--color-border);
+  color: var(--color-foreground);
+  box-shadow: 2px 2px 0px var(--color-primary);
+}
+
+.products-sort-btn:hover {
+  border-color: var(--color-primary);
+  box-shadow: 1px 1px 0px var(--color-primary);
 }
 
 .products-content {
@@ -255,49 +304,71 @@
 }
 
 .startup_card_date {
-  @apply text-sm text-gray-500 font-medium;
+  @apply text-sm font-medium;
+  color: var(--color-muted);
 }
 
 .text-16-medium {
-  @apply text-base font-medium text-black;
+  @apply text-base font-medium;
+  color: var(--color-foreground);
 }
 
 .text-26-semibold {
-  @apply text-xl md:text-2xl font-semibold text-black leading-tight;
+  @apply text-xl md:text-2xl font-semibold leading-tight;
+  color: var(--color-foreground);
 }
 
 .startup-card_desc {
-  @apply text-gray-600 text-sm md:text-base leading-relaxed mt-3 line-clamp-3;
+  @apply text-sm md:text-base leading-relaxed mt-3 line-clamp-3;
+  color: var(--color-muted);
 }
 
 .startup-card_img {
-  @apply w-full h-48 object-cover rounded-md mt-4 border-2 border-black;
+  @apply w-full h-48 object-cover rounded-md mt-4;
+  border: 2px solid var(--color-border);
 }
 
 .text-16-meduim {
-  @apply text-base font-medium text-blue-600 hover:text-blue-700 transition-colors duration-200;
+  @apply text-base font-medium transition-colors duration-200;
+  color: var(--color-primary);
+}
+
+.text-16-meduim:hover {
+  color: var(--color-primary-dark);
 }
 
 .startup-card_btn {
-  @apply h-8 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 text-sm font-medium shadow-[2px_2px_0px_#1e40af] hover:shadow-[1px_1px_0px_#1e40af] hover:translate-x-[1px] hover:translate-y-[1px];
+  @apply h-8 px-4 rounded-lg transition-all duration-200 text-sm font-medium hover:translate-x-[1px] hover:translate-y-[1px];
+  background-color: var(--color-primary);
+  color: var(--color-foreground);
+  box-shadow: 2px 2px 0px var(--color-primary-dark);
+}
+
+.startup-card_btn:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: 1px 1px 0px var(--color-primary-dark);
 }
 
 /* Skeleton Styles */
 .startup-card_skeleton {
-  @apply bg-gray-200 rounded-xl h-80 animate-pulse;
+  @apply rounded-xl h-80 animate-pulse;
+  background-color: var(--color-border);
 }
 
 /* Section Container (Legacy Support) */
 .section_container {
-  @apply py-16 px-4 md:px-8 lg:px-16 bg-[#09090b];
+  @apply py-16 px-4 md:px-8 lg:px-16;
+  background-color: var(--color-background);
 }
 
 .text-30 {
-  @apply text-2xl md:text-3xl font-semibold text-white;
+  @apply text-2xl md:text-3xl font-semibold;
+  color: var(--color-foreground);
 }
 
 .no-results {
-  @apply text-center text-zinc-400 text-lg py-12 col-span-full;
+  @apply text-center text-lg py-12 col-span-full;
+  color: var(--color-muted);
 }
 
 /* Responsive Improvements */
@@ -348,33 +419,87 @@
 
 /* Startup Form Styles */
 .startup-form {
-  @apply max-w-4xl mx-auto p-8 md:p-12 bg-white border-2 border-black rounded-2xl shadow-[8px_8px_0px_#3B82F6] space-y-6;
+  @apply max-w-4xl mx-auto p-8 md:p-12 rounded-2xl space-y-6;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-border);
+  box-shadow: 6px 6px 0px var(--color-foreground);
 }
 
 .startup-form_label {
-  @apply block text-lg font-semibold text-black mb-2;
+  @apply block text-lg font-semibold mb-2;
+  color: var(--color-foreground);
 }
 
 .startup-form_input {
-  @apply w-full h-12 px-4 bg-white border-2 border-black rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200 text-black placeholder:text-gray-500 shadow-[2px_2px_0px_#3B82F6] hover:shadow-[1px_1px_0px_#3B82F6] hover:translate-x-[1px] hover:translate-y-[1px];
+  @apply w-full h-12 px-4 rounded-lg focus:ring-2 transition-all duration-200 hover:translate-x-[1px] hover:translate-y-[1px];
+  background-color: var(--color-background);
+  border: 2px solid var(--color-border);
+  color: var(--color-foreground);
+  box-shadow: 2px 2px 0px var(--color-foreground);
+}
+
+.startup-form_input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.startup-form_input::placeholder {
+  color: var(--color-muted);
+}
+
+.startup-form_input:hover {
+  box-shadow: 1px 1px 0px var(--color-primary);
 }
 
 .startup-form_textarea {
-  @apply w-full min-h-[120px] px-4 py-3 bg-white border-2 border-black rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200 text-black placeholder:text-gray-500 shadow-[2px_2px_0px_#3B82F6] hover:shadow-[1px_1px_0px_#3B82F6] hover:translate-x-[1px] hover:translate-y-[1px];
+  @apply w-full min-h-[120px] px-4 py-3 rounded-lg focus:ring-2 transition-all duration-200 hover:translate-x-[1px] hover:translate-y-[1px];
+  background-color: var(--color-background);
+  border: 2px solid var(--color-border);
+  color: var(--color-foreground);
+  box-shadow: 2px 2px 0px var(--color-foreground);
   resize: vertical;
 }
 
+.startup-form_textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.startup-form_textarea::placeholder {
+  color: var(--color-muted);
+}
+
+.startup-form_textarea:hover {
+  box-shadow: 1px 1px 0px var(--color-primary);
+}
+
 .startup-form_btn {
-  @apply w-full h-12 px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-[4px_4px_0px_#1e40af] hover:shadow-[2px_2px_0px_#1e40af] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[4px_4px_0px_#1e40af];
+  @apply w-full h-12 px-6 font-semibold rounded-lg hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0;
+  background-color: var(--color-primary);
+  color: var(--color-foreground);
+  box-shadow: 4px 4px 0px var(--color-foreground);
+}
+
+.startup-form_btn:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: 2px 2px 0px var(--color-primary-dark);
+}
+
+.startup-form_btn:disabled:hover {
+  box-shadow: 4px 4px 0px var(--color-primary-dark);
 }
 
 .startup-form_error {
-  @apply text-red-600 text-sm font-medium mt-1;
+  @apply text-sm font-medium mt-1;
+  color: var(--color-error);
 }
 
 /* Filter Bar Styles */
 .filter-bar {
-  @apply flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between p-4 bg-white border-2 border-black rounded-lg shadow-[4px_4px_0px_#3B82F6];
+  @apply flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between p-4 rounded-lg;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-border);
+  box-shadow: 4px 4px 0px var(--color-primary);
 }
 
 .filter-search {
@@ -382,7 +507,19 @@
 }
 
 .filter-search-input {
-  @apply h-10 bg-white border-2 border-black rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200 text-black placeholder:text-gray-500;
+  @apply h-10 rounded-lg focus:ring-2 transition-all duration-200;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-border);
+  color: var(--color-foreground);
+}
+
+.filter-search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.filter-search-input::placeholder {
+  color: var(--color-muted);
 }
 
 .filter-controls {
@@ -402,13 +539,21 @@
 }
 
 .filter-sort-select {
-  @apply h-10 px-4 pr-8 bg-white border-2 border-black rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200 appearance-none cursor-pointer text-black;
+  @apply h-10 px-4 pr-8 rounded-lg focus:ring-2 transition-all duration-200 appearance-none cursor-pointer;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-border);
+  color: var(--color-foreground);
+}
+
+.filter-sort-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary);
 }
 
 .filter-sort-select:after {
   @apply absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none;
   content: "▼";
-  color: #6b7280;
+  color: var(--color-muted);
 }
 
 /* Startup Detail Page Styles */
@@ -867,7 +1012,13 @@
 }
 
 .blog-follow-btn {
-  @apply w-full h-10 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200;
+  @apply w-full h-10 font-semibold rounded-lg transition-colors duration-200;
+  background-color: var(--color-primary);
+  color: var(--color-foreground);
+}
+
+.blog-follow-btn:hover {
+  background-color: var(--color-primary-dark);
 }
 
 .blog-author-card-details {

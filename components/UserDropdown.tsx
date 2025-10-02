@@ -47,20 +47,27 @@ const UserDropdown = ({ user, userId }: UserDropdownProps) => {
             {user.name?.charAt(0).toUpperCase() || 'U'}
           </AvatarFallback>
         </Avatar>
-        <span className="text-white font-medium text-sm max-w-24 truncate">
+        <span className="font-medium text-sm max-w-24 truncate" style={{ color: 'var(--color-foreground)' }}>
           {user.name || user.email}
         </span>
         <ChevronDown
-          className={`size-4 text-white transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
+          className={`size-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
             }`}
+          style={{ color: 'var(--color-foreground)' }}
         />
       </button>
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-64 bg-black/90 backdrop-blur-md border border-white/20 rounded-lg shadow-xl z-50">
+        <div
+          className="absolute right-0 mt-2 w-64 backdrop-blur-md rounded-lg shadow-xl z-50"
+          style={{
+            backgroundColor: 'var(--color-card)',
+            border: '1px solid var(--color-border)'
+          }}
+        >
           {/* Header */}
-          <div className="px-4 py-3 border-b border-white/10">
+          <div className="px-4 py-3" style={{ borderBottom: '1px solid var(--color-border)' }}>
             <div className="flex items-center gap-3">
               <Avatar className="size-10">
                 <AvatarImage src={user.image || ''} alt={user.name || ''} />
@@ -69,10 +76,10 @@ const UserDropdown = ({ user, userId }: UserDropdownProps) => {
                 </AvatarFallback>
               </Avatar>
               <div>
-                <p className="text-white font-medium text-sm">
+                <p className="font-medium text-sm" style={{ color: 'var(--color-foreground)' }}>
                   {user.name || 'User'}
                 </p>
-                <p className="text-gray-400 text-xs">
+                <p className="text-xs" style={{ color: 'var(--color-muted)' }}>
                   {user.email}
                 </p>
               </div>

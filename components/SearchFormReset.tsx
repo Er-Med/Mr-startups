@@ -12,7 +12,7 @@ const SearchFormReset = () => {
   <button
    type="reset"
    onClick={reset}
-   className="h-14 w-14 bg-white border-2 border-black rounded-lg shadow-[4px_4px_0px_#000000] hover:shadow-[2px_2px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-red-50 hover:border-red-500 transition-all duration-75 active:shadow-[1px_1px_0px_#000000] active:translate-x-[3px] active:translate-y-[3px] flex items-center justify-center group focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+   className=" bg-white border-2 border-black rounded   hover:bg-red-50 hover:border-red-500 transition-all duration-75  flex items-center justify-center group focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 py-2 px-4"
    title="Clear search"
    aria-label="Clear search and reset form"
   >

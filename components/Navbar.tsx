@@ -11,10 +11,11 @@ const Navbar = async ({ className }: NavbarProps) => {
  const session = await auth()
 
  return (
-  <header className={`px-5 p-5 font-sans text-white relative ${className}  bg-[linear-gradient(180deg,#09090b,#09090b)] `}>
+  <header className={`px-5 p-5 font-sans relative ${className}`} style={{ color: 'var(--color-foreground)', background: 'var(--color-background)' }}>
    <nav className="flex items-center justify-between">
-    <Link href="/" className='text-xl font-bold bg-gradient-to-b from-gray-100 to-gray-200 text-transparent bg-clip-text'>
-    Mr-Startups
+    <Link href="/" className=' flex justify-center flex-col text-center  raounded-[2px]'>
+     <div className="font-bold text-2xl p-[2px_8px]"><strong className=' text-primary '>MRC</strong>STARTUPS</div>
+     {/* <p className="text-sm bg-foreground text-background font-semibold p-[2px]"> Pitch, Connect and Grow.</p> */}
      {/* <Image src="/logo.png" alt="logo" width={144} height={30} /> */}
     </Link>
     <NavbarClient session={session} />
