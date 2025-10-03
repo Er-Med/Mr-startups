@@ -35,9 +35,9 @@ export default async function Home({ searchParams }: {
               <h1 className='capitalize max-w-5xl text-center leading-[1.15]  md:leading-[1.15]  font-semibold font-sans text-[clamp(48px,5vw,76px)] bg-gradient-to-b from-gray-100 to-gray-200 text-transparent bg-clip-text'>
                 Empowering Morocco's Next Generation
               </h1>
-              {/* <p className='z-10 font-semibold mb-4  mt-4 text-center max-w-[390px] sm:max-w-[410px] px-4' style={{ color: 'var(--color-muted)' }}>
+              <p className='z-10 font-semibold mb-4  mt-4 text-center max-w-[390px] sm:max-w-[410px] px-4' style={{ color: 'var(--color-muted)' }}>
                 Pitch Ideas, Cast Votes, and Get Discovered.
-              </p> */}
+              </p> 
             </div>
 
             {/* Search Form */}
