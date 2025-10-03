@@ -176,7 +176,7 @@
 .bg-grid {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(to right, var(--color-grid) 1px, transparent 16px), linear-gradient(to bottom, var(--color-grid) 1px, transparent 16px);
+  background-image: linear-gradient(to right, 3b82f636 2px, transparent 1px), linear-gradient(to bottom, 3b82f636 2px, transparent 1px);
   background-size: 100px 100px;
   /* background-position: 0px -218px */
   animation: moveX 10s linear infinite;
