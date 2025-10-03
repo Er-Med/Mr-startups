@@ -1,4 +1,4 @@
-![](public/Cover)
+![](public/Cover.png)
 [Live Demo](https://mr-startups.vercel.app/)
 
 # MR Startups - Moroccan Startup Platform
