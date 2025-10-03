@@ -1,3 +1,6 @@
+![](public/Cover.png)
+[Live Demo](https://mr-startups.vercel.app/)
+
 # MR Startups - Moroccan Startup Platform
 
 A modern, full-stack platform designed to showcase and discover Moroccan startups. Built with Next.js 15, Sanity CMS, and NextAuth, this platform enables entrepreneurs to pitch their ideas, get discovered, and connect with the Moroccan startup ecosystem.
