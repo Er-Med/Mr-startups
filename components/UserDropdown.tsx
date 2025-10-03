@@ -47,7 +47,7 @@ const UserDropdown = ({ user, userId }: UserDropdownProps) => {
             {user.name?.charAt(0).toUpperCase() || 'U'}
           </AvatarFallback>
         </Avatar>
-        <span className="font-medium text-sm max-w-24 truncate" style={{ color: 'var(--color-foreground)' }}>
+        <span className="font-medium text-sm max-w-24 truncate max-sm:hidden" style={{ color: 'var(--color-foreground)' }}>
           {user.name || user.email}
         </span>
         <ChevronDown
