@@ -1,4 +1,4 @@
-[Live Demo]([https://example.com](https://mr-startups.vercel.app/))
+[Live Demo](https://mr-startups.vercel.app/)
 
 # MR Startups - Moroccan Startup Platform
 
